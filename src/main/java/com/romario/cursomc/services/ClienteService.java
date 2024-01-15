@@ -6,18 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.romario.cursomc.domain.Categoria;
-import com.romario.cursomc.repositories.CategoriaRepository;
+import com.romario.cursomc.domain.Cliente;
+import com.romario.cursomc.repositories.ClienteRepository;
 import com.romario.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
-public class CategoriaService {
-
+public class ClienteService {
+	
 	@Autowired
-	private CategoriaRepository categoriaRepository;
-
-	public Categoria findById(Integer id) {
-		Optional<Categoria> obj = categoriaRepository.findById(id);
+	private ClienteRepository clienteRepository;
+	
+	public Cliente findById(Integer id) {
+		Optional<Cliente> obj = clienteRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", tipo: " + Categoria.class.getName()));
-	}
+				"Objeto não encontrado! Id: " + id + ", tipo: " + Cliente.class.getName()));
+	}	
 }
