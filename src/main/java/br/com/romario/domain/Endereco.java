@@ -2,6 +2,9 @@ package br.com.romario.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +27,7 @@ public class Endereco implements Serializable {
 	private String bairro;
 	private String cep;
 	
+	@JsonBackReference
 	@ManyToOne()
 	@JoinColumn(name = "CLIENTE_ID")
 	private Cliente cliente;
