@@ -2,7 +2,7 @@ package br.com.romario.domain;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.romario.domain.enums.EstadoPagamento;
 import jakarta.persistence.Entity;
@@ -24,7 +24,7 @@ public abstract class Pagamento implements Serializable {
 	private Integer id;
 	private Integer estado;
 	
-	@JsonBackReference
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "PEDIDO_ID")
 	@MapsId
